@@ -7,32 +7,33 @@ set(${PROJECT_ID}_TEST_SOURCES
 )
 
 # the ${PROJECT_ID}-test target shall be an executable
-add_executable(${PROJECT_ID}_test)
+add_executable(${PROJECT_ID}_uinttest)
 
+set(UNITTEST  ${PROJECT_ID}_uinttest  )
 # set the source files to be built into the executable
-target_sources(${PROJECT_ID}_test
+target_sources(${UNITTEST}
 	PRIVATE
 		${${PROJECT_ID}_TEST_SOURCES}
 )
 
 # provide private include paths for our executable
-target_include_directories(${PROJECT_ID}_test
+target_include_directories(${UNITTEST}
 	PRIVATE
 		../include
 )
 
 # set the C++ 20 standard
-target_compile_features(${PROJECT_ID}_test
+target_compile_features(${UNITTEST}
 	PRIVATE
 		cxx_std_20
 )
 
 add_test(
-	NAME ${PROJECT_ID}-test
-	COMMAND ${PROJECT_ID}-test
+	NAME ${UNITTEST}
+	COMMAND ${UNITTEST}
 )
 
-target_link_libraries(${PROJECT_ID}_test
+target_link_libraries(${UNITTEST}
 	PUBLIC
 		${PROJECT_ID}-static
 		gtest

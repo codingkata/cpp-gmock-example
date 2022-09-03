@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.24)
 
 # set the project name
-set (PROJECT_NAME "QL-CPP-Tutorial")
+set (PROJECT_NAME "game")
 
 # set the PROJECT_ID which will be the target name by changing every
 # non-alphanumeric character in PROJECT_NAME to an underscore

@@ -1,1 +1,1 @@
-set_default_toolchain("//build/config/toolchains:mac")
+set_default_toolchain("//build/config/toolchains:gcc")

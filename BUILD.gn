@@ -1,5 +1,13 @@
-executable("gn-demo") {
+executable("game_demo") {
     sources = [
-        "main.cpp"
-    ]
+        "//src/main.cpp",
+        "//src/Board.cpp",
+        "//src/Game.cpp",
+        ]
+    include_dirs = [ "//include" ]
+
+}
+
+config("game_static_config"){
+  include_dirs = [ "//include" ]
 }

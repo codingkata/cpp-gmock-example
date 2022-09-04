@@ -1,0 +1,5 @@
+executable("gn-demo") {
+    sources = [
+        "main.cpp"
+    ]
+}

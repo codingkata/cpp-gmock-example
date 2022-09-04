@@ -1,3 +1,4 @@
 .vscode/
 **/.DS*
-build/
+cmake_build/
+out/

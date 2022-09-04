@@ -31,31 +31,24 @@ void Board::draw()
 
 bool Board::check()
 {
-	int i = 0;
-	int j = 0;
-	// check lines
+	// check rows
 	for (auto i = 0; i < 3; i++)
 	{
-		if (board_[i][j] == board_[i][++j] && board_[i][j] == board_[i][++j])
+		if (board_[i][0] == board_[i][1] && board_[i][1] == board_[i][2])
 			return true;
-		j = 0;
 	}
 
 	// check columns
 	for (auto j = 0; j < 3; j++)
 	{
-		if (board_[i][j] == board_[++i][j] && board_[i][j] == board_[++i][j])
+		if (board_[0][j] == board_[1][j] && board_[1][j] == board_[2][j])
 			return true;
-		i=0;
 	}
-
-	// check diags
-	if (board_[i][j] == board_[++i][++j] && board_[i][j] == board_[++i][++j])
+	// check back-slash
+	if (board_[0][0] == board_[1][1] && board_[1][1] == board_[2][2])
 		return true;
-
-	i = 0;
-	j = SIZE - 1;
-	return board_[i][j] == board_[++i][--j] && board_[i][j] == board_[++i][--j];
+	// check slash
+	return board_[0][2] == board_[1][1] && board_[1][1] == board_[2][0];
 }
 
 bool Board::update(int position)

@@ -1,14 +1,11 @@
-executable("game_demo") {
-    sources = [
-        "//src/main.cpp",
-        ]
-    include_dirs = [ "//include" ]
-    deps =[
-      ":game_static",
+group("all") {
+    deps = [
+       ":game_demo",
+       ":game_unittest",
     ]
 }
 
-config("game_static_config"){
+config("game_include_config"){
   include_dirs = [ "//include" ]
 }
 
@@ -17,15 +14,23 @@ static_library("game_static"){
         "//src/Game.cpp",
         "//src/Board.cpp",
     ]
-    include_dirs = [ "//include" ]
+    public_configs = [ ":game_include_config" ]
 }
 
-  group("all") {
-    deps = [
-       ":game_demo",
-       ":game_unittest",
+executable("game_demo") {
+    sources = [
+        "//src/main.cpp",
     ]
-  }
+    deps =[
+      ":game_static",
+    ]
+}
+
+
+config("gtest_include_config"){
+  include_dirs = [ "//include/ext" ]
+  libs =["//lib/libgtest.a","//lib/libgmock.a"]
+}
 
 executable("game_unittest") {
     sources = [
@@ -34,8 +39,8 @@ executable("game_unittest") {
         "//test/BoardTest.cpp",
         "//test/GameTest.cpp",
         ]
-    libs =["//lib/libgtest.a","//lib/libgmock.a"]
-    include_dirs = [ "//include","include/ext", ]
+
+    configs = [":gtest_include_config" ]
     deps =[
       ":game_static",
     ]

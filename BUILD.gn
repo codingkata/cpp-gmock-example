@@ -19,3 +19,24 @@ static_library("game_static"){
     ]
     include_dirs = [ "//include" ]
 }
+
+  group("all") {
+    deps = [
+       ":game_demo",
+       ":game_unittest",
+    ]
+  }
+
+executable("game_unittest") {
+    sources = [
+        "//test/main.cpp",
+        "//test/BoardMock.h",
+        "//test/BoardTest.cpp",
+        "//test/GameTest.cpp",
+        ]
+    libs =["//lib/libgtest.a","//lib/libgmock.a"]
+    include_dirs = [ "//include","include/ext", ]
+    deps =[
+      ":game_static",
+    ]
+}

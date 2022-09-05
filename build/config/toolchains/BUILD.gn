@@ -19,9 +19,7 @@ toolchain("gcc") {
     }
 
     tool("alink") {
-        rspfile = "{{output}}.rsp"
-        rspfile_content = "{{inputs}}"
-        command = "rm -f {{output}} && ar rcs {{output}} @$rspfile"
+        command = "rm -f {{output}} && ar ru {{output}} {{inputs}}"
         description = "AR {{target_output_name}}{{output_extension}}"
 
         outputs =

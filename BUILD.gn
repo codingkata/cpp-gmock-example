@@ -1,13 +1,21 @@
 executable("game_demo") {
     sources = [
         "//src/main.cpp",
-        "//src/Board.cpp",
-        "//src/Game.cpp",
         ]
     include_dirs = [ "//include" ]
-
+    deps =[
+      ":game_static",
+    ]
 }
 
 config("game_static_config"){
   include_dirs = [ "//include" ]
+}
+
+static_library("game_static"){
+    sources = [
+        "//src/Game.cpp",
+        "//src/Board.cpp",
+    ]
+    include_dirs = [ "//include" ]
 }

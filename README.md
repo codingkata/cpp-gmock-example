@@ -33,10 +33,10 @@ genhtml coverage.info --output-directory out
 
 ## Build project with GN & Ninja
 
-### Build a simple demo project.
+### Build a game_demo project.
 
 ```
-gn gen out/demo
-ninja -C out/demo
-cd out/demo
+rm -rf out/default && gn gen out/default && ninja -C out/default all
 ```
+
+The above commands will generate executable 'game_demo' and 'game_unittest' in 'out/default' directory.

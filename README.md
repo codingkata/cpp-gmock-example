@@ -25,7 +25,7 @@ rm -rf cmake_build && mkdir cmake_build && cd cmake_build && cmake -DBUILD_TESTS
 
 rm -rf cmake_build && mkdir cmake_build && cd cmake_build && cmake -DBUILD_TESTS=ON -DENABLE_COVERAGE=ON .. && make
 # 生成
-# 执行生成的可执行文件
+# 在 cmake_build 目录下执行生成的可执行文件，以生成
 ./test/game_unittest
 ```
 

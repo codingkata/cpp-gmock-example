@@ -7,9 +7,9 @@ set(${PROJECT_ID}_TEST_SOURCES
 )
 
 # the ${PROJECT_ID}-test target shall be an executable
-add_executable(${PROJECT_ID}_uinttest)
+add_executable(${PROJECT_ID}_unittest)
 
-set(UNITTEST  ${PROJECT_ID}_uinttest  )
+set(UNITTEST  ${PROJECT_ID}_unittest  )
 # set the source files to be built into the executable
 target_sources(${UNITTEST}
 	PRIVATE

@@ -28,6 +28,9 @@ target_compile_features(${UNITTEST}
 		cxx_std_20
 )
 
+# Set the -O0 flag to disable optimizations during the build of UNITTEST
+target_compile_options(${UNITTEST} PRIVATE -O0)
+
 add_test(
 	NAME ${UNITTEST}
 	COMMAND ${UNITTEST}

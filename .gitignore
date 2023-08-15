@@ -1,3 +1,4 @@
+coverage/*.html
 .vscode/
 **/.DS*
 cmake_build/

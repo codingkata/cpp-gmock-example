@@ -13,6 +13,7 @@ void Game::run()
 	while(moves < 9)
 	{
 		std::cout << "\n TicTacToe ! \n";
+
 		board_->draw();
 		std::cout << "\n Player " << (moves % 2 ? "2" : "1") << "\'s turn:\n";
 		int position = 0;
@@ -41,6 +42,8 @@ void Game::run()
 			{
 				std::cout << "\nIt's a draw!\n";
 			}
+		}else{
+			std::cout << "\n hahaha ! \n";
 		}
 		moves++;
 	};

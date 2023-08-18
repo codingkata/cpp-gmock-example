@@ -47,22 +47,3 @@ rm -rf out/default && gn gen out/default && ninja -C out/default all
 ```
 
 上面的命令会在目录 `out/default` 下，生成两个可执行文件，分别是 `game_demo` 和 `game_unittest`。
-
-
-## 解析增量覆盖率
-
-从lcov命令生成的每个源文件对应的"xxx.gov.html" 文件中解释出两次提交（commit A 和 commit B)之间的增量行覆盖率。
-
-假设:
-
-1. 所以的 gov.html 文件都放在一个名为 `coverage` 的目录
-2. 源代码在当前目录下的 src 目录下
-3. 两次commit id 分别是 `9834e86` 和`acb497f`，
-4. 增量的覆盖率阈值是 60%
-
-则，对应的命令如下：
-
-```shell
- python3 my_lcov.py "9834e86..acb497f" '["src"]' "coverage" 0.6
-```
-
